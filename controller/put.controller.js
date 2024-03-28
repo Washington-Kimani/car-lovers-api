@@ -1,4 +1,4 @@
-import Driver from "../models/driverModel";
+import Driver from "../models/driverModel.js";
 
 export const editDriver = (req, res) => {
     const id = req.params.id;

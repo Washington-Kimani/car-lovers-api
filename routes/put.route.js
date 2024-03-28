@@ -1,6 +1,5 @@
 import express from "express";
 import { editDriver } from "../controller/put.controller.js";
-import Driver from "../models/driverModel.js";
 
 const router = express.Router();
 
@@ -10,7 +9,7 @@ router.get('/', (req, res) => {
 
 
 
-router.put('/api/driver/:id', editDriver);
+router.put('/', editDriver);
 
 
 export default router;

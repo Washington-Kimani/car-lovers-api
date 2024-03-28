@@ -1,8 +1,8 @@
-import express from express;
-import { deleteDriver } from "../controller/delete.controller";
+import express from 'express';
+import { deleteDriver } from "../controller/delete.controller.js";
 
 const router = express.Router();
 
-router.delete('/api/driver/:id', deleteDriver);
+router.delete('/', deleteDriver);
 
 export default router;

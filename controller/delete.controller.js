@@ -1,4 +1,4 @@
-import Drive from "../models/driverModel";
+import Driver from "../models/driverModel.js";
 
 export const deleteDriver = (req, res) => {
     const id = req.params.id;

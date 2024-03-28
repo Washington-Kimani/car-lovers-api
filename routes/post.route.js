@@ -1,5 +1,5 @@
 import express from 'express';
-import { postDriver } from '../controller/post.controller';
+import { postDriver } from '../controller/post.controller.js';
 const router  = express.Router();
 
 const ifExist = (req, res, next) => {
@@ -10,4 +10,6 @@ const ifExist = (req, res, next) => {
         });
 }
 
-router.post('/api/driver', ifExist, postDriver);
+router.post('/', ifExist, postDriver);
+
+export default router;

@@ -1,4 +1,4 @@
-import Driver from "../models/driverModel";
+import Driver from "../models/driverModel.js";
 
 export const postDriver = (req, res) => {
     const { driver_name, car_make, car_model, car_year, avatar } = req.body
