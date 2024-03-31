@@ -1,10 +1,10 @@
 import express from "express";
 import http from "http";
-import mongoose from "mongoose";
 import cors from 'cors';
 import morgan from 'morgan';
-import router from "./routes/routes.js";
 import dotenv from "dotenv";
+import { connectDb } from "./db/connectDB.js";
+import router from "./routes/routes.js";
 dotenv.config();
 
 
@@ -17,14 +17,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('combined'));
+
+//All Routes
 app.use('/', router);
 
+
+//Test route
+app.get('/', (req, res) => {
+    res.send(`The router is working properly!!!`)
+});
+
 //Connect To MongoDB
-mongoose.connect(process.env.MONGO_URL)
-    .then(() => {
-        console.log("Connected to Database");
-    }).catch((err) => {
-        console.log(`Error Connecting to the database ${err}`);
-    })
+connectDb();
 
 server.listen(port, console.log(`Server is running on port ${port}`));
