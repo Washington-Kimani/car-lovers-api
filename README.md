@@ -8,4 +8,11 @@ Go inside the mock-data folder to access the dummy data. The data has been gener
 
 I have not included a frontEnd or any templating engine templates.
 
+## Here are the environment variables that you will need.
+
+```bash
+MONGO_URL = 
+PORT= 
+```
+
 #Have Fun!
