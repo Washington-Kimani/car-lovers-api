@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteDriver, getDriver, getDrivers, ifExist, postDriver, updateDriver  } from "../controller/controller.js";
+import { deleteDriver, getDriver, getDrivers, ifExist, postDriver, postDrivers, updateDriver  } from "../controller/controller.js";
 
 const router = express.Router();
 
@@ -12,6 +12,8 @@ router.get('/api/driver/:id', getDriver);
 router.get('/api/drivers', getDrivers);
 
 router.post('/api/driver',  ifExist , postDriver);
+
+router.post('/api/drivers', ifExist, postDrivers)
 
 router.put('/api/driver/:id', updateDriver);
 

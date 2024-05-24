@@ -50,6 +50,20 @@ export const postDriver = (req, res) => {
 
 }
 
+export const postDrivers = (req, res) => {
+    const driversData = req.body; // Assuming an array of driver objects is sent in the request body
+    const drivers = driversData.map(driver => new Driver(driver)); // Create Driver objects for each driver in the array
+
+    Driver.insertMany(drivers) // Use insertMany to insert all drivers into the database
+        .then(() => {
+            console.log("Drivers added");
+            res.status(200).json({ message: "Drivers Added!" });
+        }).catch((err) => {
+            console.error(err);
+            res.status(500).json({ error: "Error occurred while adding drivers" }); // Send error response if there's an error
+        });
+}
+
 export const updateDriver = (req, res) => {
     const id = req.params.id;
     const update = req.body;
