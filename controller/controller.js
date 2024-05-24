@@ -22,6 +22,29 @@ export const getDrivers = (req, res) => {
         });
 }
 
+export const getCars = async (req, res) => {
+    const {car_make} = req.query;
+    // Define your query
+    try {
+        // Define your query
+        const query = { car_make };
+
+        // Execute the query asynchronously
+        const driver = await Driver.find(query);
+
+        if (!driver) {
+            console.log('Driver not found');
+            return res.status(404).json({ message: 'Driver not found' });
+        }
+
+        console.log('Found driver:', driver);
+        res.json(driver);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 export const ifExist = (req, res, next) => {
     const name = req.body.driver_name;
     Driver.findOne({ driver_name: name })

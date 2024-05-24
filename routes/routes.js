@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteDriver, getDriver, getDrivers, ifExist, postDriver, postDrivers, updateDriver  } from "../controller/controller.js";
+import { deleteDriver, getDriver, getDrivers, getCars, ifExist, postDriver, postDrivers, updateDriver  } from "../controller/controller.js";
 
 const router = express.Router();
 
@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
 router.get('/api/driver/:id', getDriver);
 
 router.get('/api/drivers', getDrivers);
+
+router.get('/api/cars', getCars);
 
 router.post('/api/driver',  ifExist , postDriver);
 
