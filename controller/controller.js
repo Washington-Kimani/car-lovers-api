@@ -37,7 +37,7 @@ export const getCars = async (req, res) => {
             return res.status(404).json({ message: 'Driver not found' });
         }
 
-        console.log('Found driver:', driver);
+        // console.log('Found driver:', driver);
         res.json(driver);
     } catch (err) {
         console.error('Error:', err);
